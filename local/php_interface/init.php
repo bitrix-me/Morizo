@@ -106,12 +106,9 @@ Class MorizoDigital{
 
         $arSect = CIBlockSection::GetByID($arFields["ID"])->GetNext();
 
-        if( ($arFields["CODE"] !== $arSect["CODE"]) || ($arFields["NAME"] !== $arSect["NAME"])){
+        $arFields["CODE"] = $arSect["CODE"];
+        $arFields["NAME"] = $arSect["NAME"];
 
-            global $APPLICATION;
-            $APPLICATION->throwException("Действие запрещено для обмена данными с 1С");
-            return false;
-        }
     }
 }
 
